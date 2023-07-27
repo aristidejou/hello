@@ -1,7 +1,7 @@
 name: jou
 
 on:
-  workflow_disptach:
+  workflow_dispatch:
 
 jobs:
   check-bats-version:
