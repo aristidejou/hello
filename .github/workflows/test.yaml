@@ -17,5 +17,5 @@ jobs:
             -H "Authorization: token ${{ secrets.ARISTIDEJOU }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/$DESTINATION_REPO/actions/secrets/$SECRET_NAME \
-            -d "{\"encrypted_value\":\"$(echo -n $SOURCE_SECRET_VALUE | base64)\",\"key_id\":\"$(curl -X GET -H \"Authorization: token ${{ secrets.GITHUB_TOKEN }}\" -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/public-key | jq -r '.key_id')\"}"
+            -d "{\"encrypted_value\":\"$(echo -n $SOURCE_SECRET_VALUE | base64)\",\"key_id\":\"$(curl -X GET -H \"Authorization: token ${{ secrets.ARISTIDEJOU }}\" -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/public-key | jq -r '.key_id')\"}"
           
