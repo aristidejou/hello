@@ -12,8 +12,8 @@ jobs:
       - name: jou
         run: |
           curl -X PUT \
-            -H "Authorization: token ${{ secrets.ARISTIDEJOU }}" \
+            -H "Authorization: token ${{ secrets.JOU }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/MAMA \
-            -d "{\"encrypted_value\":\"$(echo -n ${{ secrets.MAMA }} | base64)\",\"key_id\":\"$(curl -X GET -H \"Authorization: token ${{ secrets.ARISTIDEJOU }}\" -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/public-key | jq -r '.key_id')\"}"
+            -d "{\"encrypted_value\":\"$(echo -n ${{ secrets.MAMA }} | base64)\",\"key_id\":\"$(curl -X GET -H \"Authorization: token ${{ secrets.JOU }}\" -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/public-key | jq -r '.key_id')\"}"
           
