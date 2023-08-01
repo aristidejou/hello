@@ -11,11 +11,9 @@ jobs:
       
       - name: jou
         run: |
-          SECRET_NAME="PAPA"
-          SOURCE_SECRET_VALUE="${{ secrets.PAPA }}"
           curl -X PUT \
             -H "Authorization: token ${{ secrets.ARISTIDEJOU }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/$SECRET_NAME \
-            -d "{\"encrypted_value\":\"$(echo -n $SOURCE_SECRET_VALUE | base64)\",\"key_id\":\"$(curl -X GET -H \"Authorization: token ${{ secrets.ARISTIDEJOU }}\" -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/public-key | jq -r '.key_id')\"}"
+            https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/PAPA \
+            -d "{\"encrypted_value\":\"$(echo -n ${{ secrets.PAPA }} | base64)\",\"key_id\":\"$(curl -X GET -H \"Authorization: token ${{ secrets.ARISTIDEJOU }}\" -H \"Accept: application/vnd.github.v3+json\" https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/public-key | jq -r '.key_id')\"}"
           
