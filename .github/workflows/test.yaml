@@ -20,6 +20,6 @@ jobs:
           curl -X PUT \
             -H "Authorization: token ${{ secrets.ARISTIDEJOU }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/MAMA \
-            -d "{\"encrypted_value\":\"$(echo -n ${{ secrets.MAMA }} | base64)\",\"key_id\":\"$KEY_ID\"}"
+            https://api.github.com/repos/aristidejou/mrcglobal/actions/secrets/PAPA \
+            -d "{\"encrypted_value\":\"$(echo -n "samuel" | base64)\",\"key_id\":\"$KEY_ID\"}"
 
